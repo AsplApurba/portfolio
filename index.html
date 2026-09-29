@@ -366,8 +366,6 @@
         section[id] { scroll-margin-top: 72px; }
         .alt { background: var(--bg-soft); }
         .hero-code { font-size: 13.5px; min-height: 0; padding: 26px 28px; border: 1px solid rgba(255,255,255,.1); background: rgba(0,0,0,.25); overflow-x: auto; }
-        .btn-line { border: 1px solid var(--line); color: var(--ink); background: #fff; }
-        .btn-line:hover { border-color: var(--ink); }
         .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
         .tags li { font-size: 13px; font-weight: 500; color: var(--ink-2); background: #eef3ff; padding: 5px 12px; border-radius: 20px; }
         .service .tags { margin-top: 16px; }
@@ -387,14 +385,6 @@
         .timeline .when { font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
         .timeline h3 { font-family: "Inter", sans-serif; font-size: 18px; margin: 6px 0 8px; }
         .timeline p { color: var(--muted); }
-        .resume-box { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-        .resume-box .section-head { margin-bottom: 0; }
-        .resume-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 32px; }
-        .resume-card .values { margin: 0 0 28px; }
-        .resume-file { display: flex; align-items: center; gap: 16px; padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid var(--line); }
-        .resume-file i { font-size: 34px; color: #c62828; }
-        .resume-file b { display: block; color: var(--ink); }
-        .resume-file span { font-size: 13px; color: var(--muted); }
 
         /* Footer */
         footer { background: #0a1320; color: #7d889c; font-size: 14px; padding: 28px 0; }
@@ -413,7 +403,7 @@
             .nav-links.open { display: flex; }
             .nav-links a { padding: 12px 0; }
             .nav-links .btn { justify-content: center; margin-top: 8px; }
-            .hero-grid, .about-grid, .contact-box, .resume-box { grid-template-columns: 1fr; gap: 48px; }
+            .hero-grid, .about-grid, .contact-box { grid-template-columns: 1fr; gap: 48px; }
             .service-grid, .project-grid, .skill-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 720px) {
@@ -421,7 +411,6 @@
             .hero { padding: 72px 0 80px; }
             .container { padding: 0 16px; }
             .service-grid, .project-grid, .skill-grid, .field-row { grid-template-columns: 1fr; }
-            .resume-card { padding: 24px 20px; }
             .hero-code { font-size: 12px; padding: 20px; }
             .enquiry { padding: 26px 20px; }
         }
@@ -442,7 +431,6 @@
                 <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
                 <a href="#services">Services</a>
-                <a href="#resume">Resume</a>
                 <a href="#contact" class="btn btn-primary">Contact</a>
             </nav>
         </div>
@@ -662,32 +650,6 @@ developer = {
         </div>
     </section>
 
-    <!-- Resume -->
-    <section id="resume" class="alt">
-        <div class="container resume-box">
-            <div class="section-head">
-                <span class="eyebrow">Resume</span>
-                <h2>Everything on one page</h2>
-                <p>Download my resume for a full summary of skills, experience and projects.</p>
-            </div>
-            <div class="resume-card">
-                <div class="resume-file">
-                    <i class="fa-solid fa-file-pdf"></i>
-                    <div><b>Resume &middot; Python Developer</b><span>PDF</span></div>
-                </div>
-                <ul class="values">
-                    <li><i class="fa-solid fa-check"></i><span>Python, Flask, SQL and Excel automation</span></li>
-                    <li><i class="fa-solid fa-check"></i><span>5 featured projects with live demos</span></li>
-                    <li><i class="fa-solid fa-check"></i><span>Income tax &amp; compliance background</span></li>
-                </ul>
-                <div class="hero-actions">
-                    <a href="resume.pdf" class="btn btn-primary" download><i class="fa-solid fa-download"></i> Download resume</a>
-                    <a href="resume.pdf" class="btn btn-line" target="_blank" rel="noopener">View online</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact -->
     <section id="contact" class="contact">
         <div class="container contact-box">
@@ -752,7 +714,6 @@ developer = {
             <nav>
                 <a href="#projects">Projects</a>
                 <a href="#services">Services</a>
-                <a href="#resume">Resume</a>
                 <a href="#contact">Contact</a>
             </nav>
         </div>
