@@ -169,8 +169,7 @@
 
         /* Contact */
         .contact { background: var(--ink); color: #c8d1e0; }
-        .contact-box { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-        .contact-box > div > p { margin-bottom: 32px; }
+        .contact-box { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: center; }
         .contact h2 { color: #fff; font-size: clamp(30px, 3.6vw, 42px); margin-bottom: 16px; }
         .contact .eyebrow { color: var(--gold); }
         .contact-links { display: grid; gap: 12px; }
@@ -185,30 +184,6 @@
         .contact-link i:first-child { width: 20px; color: var(--gold); font-size: 17px; }
         .contact-link span { flex: 1; }
         .contact-link .fa-arrow-right { font-size: 13px; color: #8f9bb3; }
-        .enquiry {
-            background: #fff; color: var(--text);
-            border-radius: 16px; padding: 36px;
-            display: grid; gap: 18px;
-            box-shadow: 0 30px 60px -30px rgba(0,0,0,.6);
-        }
-        .enquiry h3 { font-size: 24px; margin-bottom: 4px; }
-        .enquiry label { display: grid; gap: 7px; font-size: 14px; font-weight: 500; color: var(--ink); }
-        .enquiry input, .enquiry select, .enquiry textarea {
-            width: 100%; font: inherit; font-size: 15px; font-weight: 400; color: var(--ink);
-            padding: 12px 14px; border: 1px solid #d5dbe5; border-radius: 8px; background: #fff;
-            transition: border-color .2s, box-shadow .2s;
-        }
-        .enquiry textarea { resize: vertical; }
-        .enquiry input:focus, .enquiry select:focus, .enquiry textarea:focus {
-            outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(31,94,255,.15);
-        }
-        .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .enquiry .btn { justify-content: center; border: 0; cursor: pointer; padding: 14px 24px; }
-        .enquiry .btn:disabled { opacity: .6; cursor: wait; }
-        .hp { position: absolute; left: -9999px; }
-        .form-status { font-size: 14px; min-height: 1em; }
-        .form-status.ok { color: #178a52; }
-        .form-status.err { color: #c62828; }
 
         /* Footer */
         footer { background: #0a1320; color: #7d889c; font-size: 14px; padding: 28px 0; }
@@ -235,8 +210,7 @@
             .nav-links.open { display: flex; }
             .nav-links a { padding: 12px 0; }
             .nav-links .btn { justify-content: center; margin-top: 8px; }
-            .service-grid, .process-grid, .field-row { grid-template-columns: 1fr; }
-            .enquiry { padding: 26px 20px; }
+            .service-grid, .process-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -419,52 +393,14 @@
             <div>
                 <span class="eyebrow">Contact</span>
                 <h2>Let&rsquo;s talk about your project</h2>
-                <p>Share your details and requirement. We&rsquo;ll get back to you within one working day.</p>
-                <div class="contact-links">
-                    <a href="mailto:adivotech1@gmail.com" class="contact-link"><i class="fa-solid fa-envelope"></i><span>adivotech1@gmail.com</span><i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="tel:+916290829338" class="contact-link"><i class="fa-solid fa-phone"></i><span>+91 62908 29338</span><i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-link"><i class="fa-brands fa-linkedin"></i><span>LinkedIn</span><i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="https://github.com/AsplApurba" target="_blank" rel="noopener" class="contact-link"><i class="fa-brands fa-github"></i><span>GitHub</span><i class="fa-solid fa-arrow-right"></i></a>
-                </div>
+                <p>Looking for development, automation or tax filing services? Reach out and you&rsquo;ll receive a response promptly.</p>
             </div>
-
-            <form id="enquiry-form" class="enquiry" action="https://formsubmit.co/adivotech1@gmail.com" method="POST">
-                <h3>Send an enquiry</h3>
-                <input type="hidden" name="_subject" value="New enquiry from Adivo website">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
-
-                <div class="field-row">
-                    <label>Full name *
-                        <input type="text" name="Name" required autocomplete="name" placeholder="Your name">
-                    </label>
-                    <label>Mobile number *
-                        <input type="tel" name="Mobile" required autocomplete="tel" pattern="[0-9+ ()-]{10,16}" placeholder="+91 98765 43210">
-                    </label>
-                </div>
-                <label>Email
-                    <input type="email" name="Email" autocomplete="email" placeholder="you@example.com">
-                </label>
-                <label>Service required *
-                    <select name="Service" required>
-                        <option value="" disabled selected>Select a service</option>
-                        <option>Income Tax Filing</option>
-                        <option>Business Software Solutions</option>
-                        <option>Flask REST API Development</option>
-                        <option>SQL Database &amp; Reports</option>
-                        <option>Python Automation</option>
-                        <option>Reports &amp; Dashboards</option>
-                        <option>Excel Automation</option>
-                        <option>Other</option>
-                    </select>
-                </label>
-                <label>Message
-                    <textarea name="Message" rows="4" placeholder="Briefly describe your requirement"></textarea>
-                </label>
-                <button type="submit" class="btn btn-primary">Submit enquiry <i class="fa-solid fa-paper-plane"></i></button>
-                <p class="form-status" role="status"></p>
-            </form>
+            <div class="contact-links">
+                <a href="mailto:adivotech1@gmail.com" class="contact-link"><i class="fa-solid fa-envelope"></i><span>adivotech1@gmail.com</span><i class="fa-solid fa-arrow-right"></i></a>
+                <a href="tel:+916290829338" class="contact-link"><i class="fa-solid fa-phone"></i><span>+91 62908 29338</span><i class="fa-solid fa-arrow-right"></i></a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-link"><i class="fa-brands fa-linkedin"></i><span>LinkedIn</span><i class="fa-solid fa-arrow-right"></i></a>
+                <a href="https://github.com/AsplApurba" target="_blank" rel="noopener" class="contact-link"><i class="fa-brands fa-github"></i><span>GitHub</span><i class="fa-solid fa-arrow-right"></i></a>
+            </div>
         </div>
     </section>
 
@@ -480,27 +416,5 @@
         </div>
     </footer>
 
-    <script>
-        document.getElementById('enquiry-form').addEventListener('submit', async function (e) {
-            e.preventDefault();
-            const form = this, btn = form.querySelector('button'), status = form.querySelector('.form-status');
-            btn.disabled = true; status.className = 'form-status'; status.textContent = 'Sending...';
-            try {
-                const res = await fetch('https://formsubmit.co/ajax/adivotech1@gmail.com', {
-                    method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form)
-                });
-                const data = await res.json();
-                if (!res.ok || String(data.success) !== 'true') throw new Error(data.message);
-                form.reset();
-                status.className = 'form-status ok';
-                status.textContent = 'Thank you! Your enquiry has been received. We will contact you shortly.';
-            } catch (err) {
-                status.className = 'form-status err';
-                status.textContent = 'Sorry, something went wrong. Please call +91 62908 29338 or email adivotech1@gmail.com.';
-            } finally {
-                btn.disabled = false;
-            }
-        });
-    </script>
 </body>
 </html>
