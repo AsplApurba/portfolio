@@ -223,12 +223,10 @@
         }
         .wa-float:hover { transform: scale(1.08); }
 
-        /* Service demos */
-        .service { display: flex; flex-direction: column; }
+        /* Excel demo */
         .demo-btn {
-            margin-top: auto; padding-top: 18px; align-self: flex-start;
-            display: inline-flex; align-items: center; gap: 8px;
-            background: none; border: 0; cursor: pointer;
+            margin-top: 18px; display: inline-flex; align-items: center; gap: 8px;
+            background: none; border: 0; padding: 0; cursor: pointer;
             font: inherit; font-size: 14px; font-weight: 600; color: var(--accent);
         }
         .demo-btn i { font-size: 18px; }
@@ -240,13 +238,12 @@
         }
         .demo-modal.open { display: flex; }
         .demo-panel {
-            --demo-c: #107c41;
-            width: 100%; max-width: 900px; max-height: 100%; overflow: auto;
+            width: 100%; max-width: 860px; max-height: 100%; overflow: auto;
             background: #fff; border-radius: 14px; box-shadow: 0 40px 80px -30px rgba(0,0,0,.6);
         }
         .demo-bar {
             display: flex; align-items: center; gap: 10px;
-            background: var(--demo-c); color: #fff; padding: 10px 16px; font-size: 14px; font-weight: 500;
+            background: #107c41; color: #fff; padding: 10px 16px; font-size: 14px; font-weight: 500;
         }
         .demo-bar .fname { flex: 1; }
         .demo-bar button { background: none; border: 0; color: #fff; font-size: 18px; cursor: pointer; padding: 2px 6px; }
@@ -255,120 +252,43 @@
             padding: 14px 20px; font-size: 15px; font-weight: 600; color: var(--ink);
             border-bottom: 1px solid var(--line);
         }
-        .demo-caption .dot { flex: none; width: 9px; height: 9px; border-radius: 50%; background: #f5a524; animation: pulse 1s infinite; }
+        .demo-caption .dot { width: 9px; height: 9px; border-radius: 50%; background: #f5a524; animation: pulse 1s infinite; }
         .demo-caption.done .dot { background: #178a52; animation: none; }
         @keyframes pulse { 50% { opacity: .3; } }
-        .demo-stage { position: relative; padding: 20px; min-height: 390px; font-size: 13px; }
-        .demo-foot { display: flex; align-items: center; gap: 14px; padding: 0 20px 20px; }
-        .demo-progress { flex: 1; height: 4px; background: #eceff3; border-radius: 2px; overflow: hidden; }
-        .demo-progress div { height: 100%; width: 0; background: var(--demo-c); }
-        .demo-foot .btn { padding: 9px 16px; font-size: 14px; border: 0; cursor: pointer; }
-        .demo-foot .btn[hidden] { display: none; }
-
-        /* Demo building blocks */
-        .fade { opacity: 0; transform: translateY(6px); transition: opacity .45s, transform .45s; }
-        .fade.in { opacity: 1; transform: none; }
-        @keyframes rowIn { from { opacity: 0; transform: translateX(-8px); } }
-        .row-in { animation: rowIn .45s ease-out; }
-        .d-grid2 { display: grid; grid-template-columns: 1.3fr 1fr; gap: 20px; align-items: start; }
-        .d-box { border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
-        .d-box h4 { font-family: "Inter", sans-serif; font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 12px; }
-        .d-note { margin-top: 12px; color: var(--ink); }
-        .d-note strong { color: #178a52; }
-        .kv { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid #eef0f4; }
-        .kv span { color: var(--muted); }
-        .kv b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; min-height: 1.3em; }
-        .stamp {
-            margin-top: 16px; display: inline-flex; align-items: center; gap: 8px;
-            border: 2px solid #178a52; color: #178a52; border-radius: 8px;
-            padding: 8px 12px; font-weight: 700; transform: rotate(-2deg);
+        .demo-body { display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px; padding: 20px; }
+        .sheet { border: 1px solid #d0d7de; font-size: 13px; font-variant-numeric: tabular-nums; }
+        .sheet-head, .sheet-row {
+            display: grid; grid-template-columns: 32px 1fr 1fr .7fr 1.1fr; height: 32px; align-items: center;
         }
-        .stamp.fade { transform: rotate(-2deg) scale(1.3); }
-        .stamp.fade.in { transform: rotate(-2deg) scale(1); }
-        .d-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
-        .d-table th, .d-table td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #eef0f4; }
-        .d-table th { background: #f3f4f6; color: var(--muted); font-weight: 600; font-size: 12px; }
-        .d-table th:not(:first-child), .d-table td:not(:first-child) { text-align: right; }
-        .d-table tfoot td { color: var(--muted); }
-        .d-table tfoot .grand td { color: var(--ink); font-weight: 700; font-size: 14px; border-top: 2px solid var(--demo-c); }
-        .d-table tfoot.fade { transform: none; }
-        .code {
-            background: #0d1117; color: #c9d1d9; border-radius: 10px; padding: 16px;
-            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; line-height: 1.65;
-            white-space: pre; overflow-x: auto; min-height: 120px;
-        }
-        .code .k { color: #ff7b72; } .code .s { color: #a5d6ff; } .code .d { color: #d2a8ff; }
-        .code .f { color: #79c0ff; } .code .n { color: #ffa657; }
-        .code .t-ok { color: #3fb950; } .code .t-dim { color: #8b949e; } .code .t-cmd { color: #fff; }
-        .caret::after { content: "\2588"; animation: pulse 1s infinite; color: #8b949e; }
-        .req { border: 1px solid var(--line); border-radius: 8px; margin-bottom: 10px; overflow: hidden; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
-        .req-head { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: #f6f8fa; }
-        .req-head .method { font-weight: 700; color: #1f5eff; }
-        .req-head .status { margin-left: auto; font-weight: 700; padding: 1px 8px; border-radius: 10px; }
-        .s2 { color: #178a52; background: #e3f6ea; } .s4 { color: #c62828; background: #fdeaea; }
-        .req-auth { padding: 6px 10px 0; color: var(--muted); }
-        .req pre { padding: 6px 10px 10px; margin: 0; white-space: pre-wrap; color: var(--ink); }
-        .bar-row { display: grid; grid-template-columns: 48px 1fr; align-items: center; gap: 8px; font-size: 12px; margin-bottom: 10px; color: var(--muted); }
-        .bar-row.wide { grid-template-columns: 82px 1fr; }
-        .bar { height: 22px; border-radius: 4px; background: var(--demo-c); width: 0; transition: width 1s cubic-bezier(.2,.8,.2,1); position: relative; }
-        .bar b { position: absolute; left: calc(100% + 6px); top: 3px; color: var(--ink); font-size: 11px; font-weight: 600; white-space: nowrap; }
-        .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
-        .tiles.three { grid-template-columns: repeat(3, 1fr); margin: 16px 0 0; }
-        .tile { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
-        .tile span { display: block; font-size: 12px; color: var(--muted); }
-        .tile b { display: block; font-size: 20px; color: var(--ink); font-variant-numeric: tabular-nums; margin-top: 2px; }
-        .live { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: #178a52; background: #e3f6ea; padding: 4px 10px; border-radius: 20px; margin-bottom: 12px; }
-        .line-svg { width: 100%; height: auto; display: block; }
-        .line-svg .grid { stroke: #eef0f4; }
-        .line-svg text { font-size: 9px; fill: #6b778c; font-family: "Inter", sans-serif; }
-        .line-svg .line { fill: none; stroke: var(--demo-c); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.6s ease; }
-        .line-svg .line.draw { stroke-dashoffset: 0; }
-        .line-svg circle { fill: #fff; stroke: var(--demo-c); stroke-width: 2; opacity: 0; transition: opacity .4s; }
-        .line-svg.dots circle { opacity: 1; }
-        .spinner { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); margin: 14px 0; }
-        .spinner i { color: var(--demo-c); }
-        .export { margin-top: 14px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 8px; background: #e3f6ea; color: #178a52; font-weight: 600; }
-
-        /* Billing app mock */
-        .app { position: relative; display: grid; grid-template-columns: 150px 1fr; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; min-height: 350px; }
-        .app-side { background: #0f1b2d; color: #aab5c8; padding: 14px 10px; }
-        .app-side div { padding: 8px 10px; border-radius: 6px; margin-bottom: 4px; }
-        .app-side i { width: 18px; }
-        .app-side .active { background: rgba(255,255,255,.1); color: #fff; }
-        .app-main { padding: 16px; }
-        .app-head { display: flex; gap: 40px; margin-bottom: 14px; }
-        .app-head small { display: block; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
-        .app-head b { display: block; color: var(--ink); font-size: 15px; min-height: 1.4em; }
-        .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-        .chip { font-size: 12px; background: #eef3ff; color: #33415c; padding: 5px 10px; border-radius: 20px; }
-        .chip b { transition: color .3s; }
-        .chip b.flash { color: #c62828; }
-        .toast { position: absolute; right: 16px; bottom: 16px; background: #0f1b2d; color: #fff; padding: 10px 14px; border-radius: 8px; box-shadow: 0 10px 25px -10px rgba(0,0,0,.5); }
-        .toast i { color: #25d366; margin-right: 6px; }
-
-        /* Excel sheet mock */
-        .demo-body { display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px; align-items: start; }
-        .sheet { border: 1px solid #d0d7de; font-variant-numeric: tabular-nums; }
-        .sheet-head, .sheet-row { display: grid; grid-template-columns: 32px 1fr 1fr .7fr 1.1fr; height: 32px; align-items: center; }
         .sheet-head { background: #f3f4f6; color: #6b7280; font-size: 12px; text-align: center; border-bottom: 1px solid #d0d7de; }
         .sheet-rows { position: relative; }
-        .sheet-row { position: absolute; left: 0; right: 0; border-bottom: 1px solid #eceff3; color: #1f2937; transition: top .8s cubic-bezier(.65,0,.35,1), background .4s, color .4s; }
+        .sheet-row {
+            position: absolute; left: 0; right: 0;
+            border-bottom: 1px solid #eceff3; color: #1f2937;
+            transition: top .8s cubic-bezier(.65,0,.35,1), background .4s, color .4s;
+        }
         .sheet-row > span { padding: 0 8px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
         .sheet-row > span:first-child { padding: 0; color: #9ca3af; text-align: center; background: #f9fafb; height: 100%; line-height: 32px; border-right: 1px solid #eceff3; }
         .sheet-row > span:nth-child(4), .sheet-row > span:nth-child(5) { text-align: right; }
         .sheet.fmt .sheet-row.hdr { background: #107c41; color: #fff; font-weight: 600; }
+        .sheet.fmt .sheet-row.hdr > span:first-child { color: #9ca3af; }
         .sheet.fmt .sheet-row.zebra { background: #f0f7f3; }
         .sheet.fmt .sheet-row.top > span:nth-child(5) { color: #107c41; font-weight: 600; }
         .sheet-row.total { font-weight: 700; background: #e7f3ec; border-top: 2px solid #107c41; opacity: 0; transition: opacity .6s; }
         .sheet-row.total.show { opacity: 1; }
-
+        .chart { align-self: start; border: 1px solid var(--line); border-radius: 10px; padding: 16px; opacity: 0; transform: translateY(8px); transition: opacity .5s, transform .5s; }
+        .chart.show { opacity: 1; transform: none; }
+        .chart h4 { font-size: 13px; color: var(--ink); margin-bottom: 14px; }
+        .bar-row { display: grid; grid-template-columns: 48px 1fr; align-items: center; gap: 8px; font-size: 12px; margin-bottom: 10px; color: var(--muted); }
+        .bar { height: 22px; border-radius: 4px; background: linear-gradient(90deg, #107c41, #21a366); width: 0; transition: width 1s cubic-bezier(.2,.8,.2,1); position: relative; }
+        .bar b { position: absolute; right: 6px; top: 3px; color: #fff; font-size: 11px; font-weight: 600; }
+        .demo-foot { display: flex; align-items: center; gap: 14px; padding: 0 20px 20px; }
+        .demo-progress { flex: 1; height: 4px; background: #eceff3; border-radius: 2px; overflow: hidden; }
+        .demo-progress div { height: 100%; width: 0; background: #107c41; }
+        .demo-foot .btn { padding: 9px 16px; font-size: 14px; border: 0; cursor: pointer; }
+        .demo-foot .btn[hidden] { display: none; }
         @media (max-width: 720px) {
-            .demo-stage { padding: 14px; min-height: 0; }
-            .d-grid2, .demo-body { grid-template-columns: 1fr; }
-            .app { grid-template-columns: 1fr; }
-            .app-side { display: none; }
-            .tiles { grid-template-columns: repeat(2, 1fr); }
-            .code { font-size: 11px; }
+            .demo-body { grid-template-columns: 1fr; padding: 14px; }
             .sheet { font-size: 11.5px; }
             .sheet-head, .sheet-row { grid-template-columns: 24px 1fr 1fr .6fr 1.2fr; }
             .sheet-row > span { padding: 0 5px; }
@@ -464,7 +384,6 @@
                     </div>
                     <h3>Income Tax Filing</h3>
                     <p>Income Tax Return (ITR) filing and compliance services handled with accuracy and expertise.</p>
-                    <button type="button" class="demo-btn" onclick="openDemo('tax')"><i class="fa-solid fa-circle-play"></i> Watch demo</button>
                 </article>
 
                 <article class="service">
@@ -474,7 +393,6 @@
                     </div>
                     <h3>Business Software Solutions</h3>
                     <p>Custom business software designed to streamline and optimise your daily operations.</p>
-                    <button type="button" class="demo-btn" onclick="openDemo('software')"><i class="fa-solid fa-circle-play"></i> Watch demo</button>
                 </article>
 
                 <article class="service">
@@ -484,7 +402,6 @@
                     </div>
                     <h3>Flask REST API Development</h3>
                     <p>Secure, scalable REST APIs built with Python and the Flask framework.</p>
-                    <button type="button" class="demo-btn" onclick="openDemo('api')"><i class="fa-solid fa-circle-play"></i> Watch demo</button>
                 </article>
 
                 <article class="service">
@@ -494,7 +411,6 @@
                     </div>
                     <h3>SQL Database &amp; Reports</h3>
                     <p>Design, manage and optimise SQL databases that produce precise business reports.</p>
-                    <button type="button" class="demo-btn" onclick="openDemo('sql')"><i class="fa-solid fa-circle-play"></i> Watch demo</button>
                 </article>
 
                 <article class="service">
@@ -504,7 +420,6 @@
                     </div>
                     <h3>Python Automation</h3>
                     <p>Automate repetitive processes and workflows to save your team valuable time.</p>
-                    <button type="button" class="demo-btn" onclick="openDemo('python')"><i class="fa-solid fa-circle-play"></i> Watch demo</button>
                 </article>
 
                 <article class="service">
@@ -514,7 +429,6 @@
                     </div>
                     <h3>Reports &amp; Dashboards</h3>
                     <p>Automated reports and visual dashboards that support data-driven decisions.</p>
-                    <button type="button" class="demo-btn" onclick="openDemo('dash')"><i class="fa-solid fa-circle-play"></i> Watch demo</button>
                 </article>
 
                 <article class="service">
@@ -524,7 +438,7 @@
                     </div>
                     <h3>Excel Automation</h3>
                     <p>Automate repetitive Excel tasks: data sorting, formatting and report generation.</p>
-                    <button type="button" class="demo-btn" onclick="openDemo('excel')"><i class="fa-solid fa-circle-play"></i> Watch demo</button>
+                    <button type="button" class="demo-btn" onclick="openDemo()"><i class="fa-solid fa-circle-play"></i> Watch demo</button>
                 </article>
 
                 <article class="service cta">
@@ -653,16 +567,25 @@
         </div>
     </footer>
 
-    <!-- Service demos -->
+    <!-- Excel automation demo -->
     <div class="demo-modal" id="demo-modal" onclick="if(event.target===this)closeDemo()">
-        <div class="demo-panel" id="demo-panel" role="dialog" aria-modal="true" aria-label="Service demo">
+        <div class="demo-panel" role="dialog" aria-modal="true" aria-label="Excel automation demo">
             <div class="demo-bar">
-                <i id="demo-icon" class="fa-solid fa-file-excel"></i>
-                <span class="fname" id="demo-file"></span>
+                <i class="fa-solid fa-file-excel"></i>
+                <span class="fname">Sales_Report.xlsx &mdash; Adivo Excel Automation</span>
                 <button type="button" onclick="closeDemo()" aria-label="Close demo"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="demo-caption" id="demo-caption"><span class="dot"></span><span id="demo-step"></span></div>
-            <div class="demo-stage" id="demo-stage"></div>
+            <div class="demo-caption" id="demo-caption"><span class="dot"></span><span id="demo-step">Raw data imported</span></div>
+            <div class="demo-body">
+                <div class="sheet" id="sheet">
+                    <div class="sheet-head"><span></span><span>A</span><span>B</span><span>C</span><span>D</span></div>
+                    <div class="sheet-rows" id="sheet-rows"></div>
+                </div>
+                <div class="chart" id="chart">
+                    <h4>Sales by Region</h4>
+                    <div id="bars"></div>
+                </div>
+            </div>
             <div class="demo-foot">
                 <div class="demo-progress"><div id="demo-progress"></div></div>
                 <button type="button" class="btn btn-primary" id="demo-replay" onclick="playDemo()" hidden><i class="fa-solid fa-rotate-right"></i> Replay</button>
@@ -702,327 +625,79 @@
             status.className = 'form-status ok';
             status.textContent = 'WhatsApp has opened with your details. Please tap Send to complete your enquiry.';
         });
-        // Service demos (all figures are sample data)
-        const DEMO_LEN = 8000, ROW_H = 32;
-        const inr = n => '₹' + n.toLocaleString('en-IN');
-        const h = html => { const t = document.createElement('template'); t.innerHTML = html.trim(); return t.content.firstElementChild; };
-        const reveal = el => el.classList.add('in');
-        const growBars = root => root.querySelectorAll('.bar').forEach(b => { b.style.width = b.dataset.w * 0.72 + '%'; });
-        function typeInto(at, el, text, start, speed) {
-            for (let i = 1; i <= text.length; i++) at(start + i * speed, () => { el.textContent = text.slice(0, i); });
-            return start + text.length * speed;
-        }
-        function countUp(at, el, to, start, dur, fmt) {
-            for (let i = 1; i <= 20; i++) at(start + dur * i / 20, () => { el.textContent = fmt(Math.round(to * i / 20)); });
-        }
+        // Excel automation demo
+        const demoData = [
+            ['North', 'Laptop', 12, 540000], ['South', 'Printer', 30, 225000],
+            ['East', 'Monitor', 25, 312500], ['West', 'Laptop', 8, 360000],
+            ['North', 'Keyboard', 120, 96000], ['East', 'Mouse', 200, 80000],
+            ['South', 'Laptop', 15, 675000], ['West', 'Monitor', 18, 225000]
+        ];
+        const ROW_H = 32, inr = n => '\u20b9' + n.toLocaleString('en-IN');
+        let demoTimers = [];
 
-        const demos = {
-            tax: {
-                file: 'ITR-1 · Assessment Year 2026-27', icon: 'fa-file-invoice-dollar', color: '#0b5cad',
-                done: 'ITR filed successfully · Refund due ₹15,352',
-                run(stage, at, say) {
-                    const fields = [['PAN', 'ABCDE1234F'], ['Name', 'Rahul Sharma'], ['Gross salary', '₹18,00,000'],
-                        ['Other income', '₹18,500'], ['Deductions (80C + 80D)', '₹1,75,000'], ['TDS deducted', '₹1,70,000']];
-                    const form = h('<div class="d-box"><h4>Return details</h4></div>');
-                    const vals = fields.map(([k]) => form.appendChild(h('<div class="kv"><span>' + k + '</span><b></b></div>')).lastChild);
-                    const calc = h(`<div class="d-box fade"><h4>Tax regime comparison</h4>
-                        <div class="bar-row"><span>Old</span><div class="bar" style="background:#c0392b" data-w="100"><b>₹3,02,172</b></div></div>
-                        <div class="bar-row"><span>New</span><div class="bar" style="background:#178a52" data-w="51"><b>₹1,54,648</b></div></div>
-                        <p class="d-note fade">New regime saves <strong>₹1,47,524</strong></p>
-                        <div class="stamp fade"><i class="fa-solid fa-circle-check"></i> e-Filed · Ack. No. 482917365</div></div>`);
-                    const grid = h('<div class="d-grid2"></div>'); grid.append(form, calc); stage.append(grid);
-
-                    say('Importing Form 16 and AIS data...');
-                    let t = 300;
-                    fields.forEach((f, i) => { t = typeInto(at, vals[i], f[1], t, 28) + 150; });
-                    at(3300, () => { say('Comparing Old vs New tax regime...'); reveal(calc); at(150, () => growBars(calc)); });
-                    at(5000, () => { say('New regime selected: saves ₹1,47,524'); reveal(calc.querySelector('.d-note')); });
-                    at(6300, () => say('Validating and e-filing the return...'));
-                    at(7400, () => reveal(calc.querySelector('.stamp')));
-                }
-            },
-
-            software: {
-                file: 'Adivo Billing · New Invoice', icon: 'fa-laptop-code', color: '#1f5eff',
-                done: 'Invoice INV-1024 saved and shared with the customer',
-                run(stage, at, say) {
-                    const items = [['Laptop', 2, 45000], ['Wireless Mouse', 5, 400], ['Keyboard', 3, 900]];
-                    const app = h(`<div class="app">
-                        <div class="app-side">
-                            <div><i class="fa-solid fa-gauge"></i> Dashboard</div>
-                            <div class="active"><i class="fa-solid fa-file-invoice"></i> Invoices</div>
-                            <div><i class="fa-solid fa-boxes-stacked"></i> Stock</div>
-                            <div><i class="fa-solid fa-users"></i> Customers</div>
-                        </div>
-                        <div class="app-main">
-                            <div class="app-head"><div><small>Invoice</small><b>INV-1024</b></div><div><small>Customer</small><b class="cust"></b></div></div>
-                            <table class="d-table">
-                                <thead><tr><th>Item</th><th>Qty</th><th>Rate</th><th>Amount</th></tr></thead>
-                                <tbody></tbody>
-                                <tfoot class="fade">
-                                    <tr><td colspan="3">Subtotal</td><td>₹94,700</td></tr>
-                                    <tr><td colspan="3">GST @ 18%</td><td>₹17,046</td></tr>
-                                    <tr class="grand"><td colspan="3">Total</td><td>₹1,11,746</td></tr>
-                                </tfoot>
-                            </table>
-                            <div class="chips fade">
-                                <span class="chip">Laptop stock: <b>24</b></span>
-                                <span class="chip">Mouse stock: <b>60</b></span>
-                                <span class="chip">Keyboard stock: <b>35</b></span>
-                            </div>
-                        </div>
-                        <div class="toast fade"><i class="fa-brands fa-whatsapp"></i>Invoice sent to Sharma Traders</div>
-                    </div>`);
-                    stage.append(app);
-                    const tbody = app.querySelector('tbody'), chips = app.querySelector('.chips');
-
-                    say('Selecting customer...');
-                    typeInto(at, app.querySelector('.cust'), 'Sharma Traders', 200, 45);
-                    at(1200, () => say('Adding items to the invoice...'));
-                    items.forEach(([name, qty, rate], i) => at(1300 + i * 600, () => tbody.append(
-                        h(`<tr class="row-in"><td>${name}</td><td>${qty}</td><td>${inr(rate)}</td><td>${inr(qty * rate)}</td></tr>`))));
-                    at(3300, () => { say('Calculating GST and totals...'); reveal(app.querySelector('tfoot')); });
-                    at(4800, () => {
-                        say('Updating stock levels...'); reveal(chips);
-                        at(500, () => chips.querySelectorAll('b').forEach((b, i) => {
-                            b.textContent = +b.textContent - items[i][1]; b.classList.add('flash');
-                        }));
-                    });
-                    at(6400, () => { say('Sending invoice to the customer...'); reveal(app.querySelector('.toast')); });
-                }
-            },
-
-            api: {
-                file: 'app.py · Flask REST API', icon: 'fa-server', color: '#1e293b',
-                done: 'API secured, tested and ready to deploy',
-                run(stage, at, say) {
-                    const lines = [
-                        '<span class="k">from</span> flask <span class="k">import</span> Flask, jsonify, request',
-                        '<span class="k">from</span> auth <span class="k">import</span> token_required',
-                        '',
-                        'app = Flask(__name__)',
-                        '',
-                        '<span class="d">@app.post</span>(<span class="s">"/api/customers"</span>)',
-                        '<span class="d">@token_required</span>',
-                        '<span class="k">def</span> <span class="f">create_customer</span>():',
-                        '    data = request.get_json()',
-                        '    customer = db.save(data)',
-                        '    <span class="k">return</span> jsonify(customer), <span class="n">201</span>',
-                        '',
-                        '<span class="d">@app.get</span>(<span class="s">"/api/customers/&lt;int:id&gt;"</span>)',
-                        '<span class="d">@token_required</span>',
-                        '<span class="k">def</span> <span class="f">get_customer</span>(id):',
-                        '    <span class="k">return</span> jsonify(db.get(id)), <span class="n">200</span>'
-                    ];
-                    const body = '{\n  "id": 101,\n  "name": "Sharma Traders",\n  "status": "active"\n}';
-                    const reqs = [
-                        ['POST', '/api/customers', 'none', 's4', '401', '{\n  "error": "Unauthorized"\n}'],
-                        ['POST', '/api/customers', 'Bearer eyJhbGciOi…', 's2', '201', body],
-                        ['GET', '/api/customers/101', 'Bearer eyJhbGciOi…', 's2', '200', body]
-                    ].map(([m, path, auth, cls, code, json]) => h(`<div class="req fade">
-                        <div class="req-head"><span class="method">${m}</span><span>${path}</span><span class="status ${cls}">${code}</span></div>
-                        <div class="req-auth">Authorization: ${auth}</div><pre>${json}</pre></div>`));
-                    const code = h('<div class="code"></div>');
-                    const client = h('<div><h4 style="font-family:Inter,sans-serif;font-size:13px;color:var(--ink);margin-bottom:12px">API tests</h4></div>');
-                    client.append(...reqs);
-                    const grid = h('<div class="d-grid2"></div>'); grid.append(code, client); stage.append(grid);
-
-                    say('Writing secure API endpoints in Flask...');
-                    lines.forEach((l, i) => at(200 + i * 170, () => code.append(h('<div>' + (l || '&nbsp;') + '</div>'))));
-                    at(3300, () => { say('Test 1: request without a token... blocked (401)'); reveal(reqs[0]); });
-                    at(4800, () => { say('Test 2: create customer with a valid token... 201 Created'); reveal(reqs[1]); });
-                    at(6300, () => { say('Test 3: fetch the customer... 200 OK'); reveal(reqs[2]); });
-                }
-            },
-
-            sql: {
-                file: 'sales_db · Query editor', icon: 'fa-database', color: '#336791',
-                done: 'Report exported: Monthly_Sales_Report.xlsx',
-                run(stage, at, say) {
-                    const sql = "SELECT region,\n       COUNT(*)     AS orders,\n       SUM(amount)  AS revenue\nFROM   sales\nWHERE  order_date >= '2026-04-01'\nGROUP  BY region\nORDER  BY revenue DESC;";
-                    const rows = [['South', 42, 900000], ['North', 38, 636000], ['West', 29, 585000], ['East', 24, 392500]];
-                    const ed = h('<div class="code caret"></div>');
-                    const spin = h('<div class="spinner fade"><i class="fa-solid fa-circle-notch fa-spin"></i> Running query...</div>');
-                    const res = h(`<div class="fade" style="margin-top:16px"><table class="d-table">
-                        <thead><tr><th>region</th><th>orders</th><th>revenue</th></tr></thead><tbody></tbody>
-                        <tfoot class="fade"><tr class="grand"><td>Total</td><td>133</td><td>₹25,13,500</td></tr></tfoot></table>
-                        <div class="export fade"><i class="fa-solid fa-file-excel"></i> Monthly_Sales_Report.xlsx generated</div></div>`);
-                    stage.append(ed, spin, res);
-
-                    say('Writing SQL query...');
-                    at(2800, () => ed.classList.remove('caret'));
-                    typeInto(at, ed, sql, 200, 12);
-                    at(3000, () => { say('Running query on 1,20,000 sales records...'); reveal(spin); });
-                    at(4000, () => {
-                        say('4 rows returned in 0.03 s'); spin.remove(); reveal(res);
-                        rows.forEach(([r, o, v], i) => at(i * 250, () => res.querySelector('tbody').append(
-                            h(`<tr class="row-in"><td>${r}</td><td>${o}</td><td>${inr(v)}</td></tr>`))));
-                    });
-                    at(5800, () => { say('Adding totals to the report...'); reveal(res.querySelector('tfoot')); });
-                    at(6900, () => { say('Exporting report to Excel...'); reveal(res.querySelector('.export')); });
-                }
-            },
-
-            python: {
-                file: 'automate_invoices.py · Terminal', icon: 'fa-robot', color: '#3776ab',
-                done: 'Task complete: 250 invoices processed automatically',
-                run(stage, at, say) {
-                    const term = h('<div class="code" style="min-height:230px"></div>');
-                    const tiles = h(`<div class="tiles three fade">
-                        <div class="tile"><span>Files processed</span><b>250</b></div>
-                        <div class="tile"><span>Excel rows added</span><b>250</b></div>
-                        <div class="tile"><span>Emails sent</span><b>12</b></div></div>`);
-                    stage.append(term, tiles);
-                    const out = (html, ms) => at(ms, () => term.append(h('<div>' + html + '</div>')));
-
-                    say('Running automation script...');
-                    out('<span class="t-dim">$</span> <span class="t-cmd">python automate_invoices.py</span>', 200);
-                    out('→ Reading invoices from /Invoices/September ...', 800);
-                    out('<span class="t-ok">  250 PDF files found</span>', 1400);
-                    at(2000, () => {
-                        say('Extracting data from 250 invoices...');
-                        term.append(h('<div>→ Extracting invoice data</div>'));
-                        const bar = term.appendChild(h('<div class="t-dim"></div>'));
-                        for (let i = 0; i <= 20; i++) at(i * 90, () => {
-                            bar.textContent = '  [' + '█'.repeat(i) + '░'.repeat(20 - i) + '] ' + i * 5 + '%';
-                        });
-                    });
-                    at(4200, () => say('Renaming and organising files...'));
-                    out('→ Renaming files to INV-&lt;date&gt;-&lt;client&gt;.pdf   <span class="t-ok">✓</span>', 4300);
-                    at(5000, () => say('Updating master Excel sheet...'));
-                    out('→ Updating Master_Invoices.xlsx   <span class="t-ok">✓ 250 rows added</span>', 5100);
-                    at(5800, () => say('Emailing statements to clients...'));
-                    out('→ Emailing statements to 12 clients   <span class="t-ok">✓</span>', 5900);
-                    out('<span class="t-ok"><b>✔ Completed in 42 seconds</b></span>', 6800);
-                    at(7100, () => reveal(tiles));
-                }
-            },
-
-            dash: {
-                file: 'Sales Dashboard · Live', icon: 'fa-chart-line', color: '#0e7490',
-                done: 'Dashboard live: refreshes automatically every morning',
-                run(stage, at, say) {
-                    const months = [['Apr', 3.2], ['May', 3.6], ['Jun', 3.9], ['Jul', 4.3], ['Aug', 4.8], ['Sep', 5.3]];
-                    const pts = months.map(([, v], i) => [20 + i * 52, +(115 - (v - 3) * 38).toFixed(1)]);
-                    const svg = `<svg class="line-svg" viewBox="0 0 300 140">
-                        ${[25, 55, 85, 115].map(y => `<line class="grid" x1="10" x2="290" y1="${y}" y2="${y}"/>`).join('')}
-                        <path class="line" pathLength="1" d="M${pts.map(p => p.join(' ')).join(' L')}"/>
-                        ${pts.map(([x, y]) => `<circle cx="${x}" cy="${y}" r="3.5"/>`).join('')}
-                        ${months.map(([m], i) => `<text x="${pts[i][0]}" y="134" text-anchor="middle">${m}</text>`).join('')}
-                    </svg>`;
-                    const products = [['Laptops', 1575000], ['Monitors', 537500], ['Printers', 225000], ['Accessories', 176000]];
-                    const wrap = h(`<div>
-                        <span class="live fade"><i class="fa-solid fa-circle"></i> Live · auto-refresh daily at 9:00 AM</span>
-                        <div class="tiles">
-                            <div class="tile"><span>Revenue (6 months)</span><b>—</b></div>
-                            <div class="tile"><span>Orders</span><b>—</b></div>
-                            <div class="tile"><span>Avg. order value</span><b>—</b></div>
-                            <div class="tile"><span>Growth (month on month)</span><b>—</b></div>
-                        </div>
-                        <div class="d-grid2">
-                            <div class="d-box fade"><h4>Monthly revenue (₹ lakh)</h4>${svg}</div>
-                            <div class="d-box fade"><h4>Top products</h4>${products.map(([n, v]) =>
-                                `<div class="bar-row wide"><span>${n}</span><div class="bar" data-w="${v / 1575000 * 100}"><b>${(v / 100000).toFixed(1)}L</b></div></div>`).join('')}</div>
-                        </div></div>`);
-                    stage.append(wrap);
-                    const [rev, ord, avg, gro] = wrap.querySelectorAll('.tile b');
-                    const [chart, prod] = wrap.querySelectorAll('.d-box');
-
-                    say('Connecting to Excel and SQL data sources...');
-                    at(1200, () => say('Calculating key metrics...'));
-                    countUp(at, rev, 2513500, 1200, 1400, inr);
-                    countUp(at, ord, 133, 1200, 1400, String);
-                    countUp(at, avg, 18899, 1200, 1400, inr);
-                    countUp(at, gro, 104, 1200, 1400, x => '+' + (x / 10).toFixed(1) + '%');
-                    at(3000, () => {
-                        say('Plotting monthly revenue trend...'); reveal(chart);
-                        at(100, () => chart.querySelector('.line').classList.add('draw'));
-                        at(1700, () => chart.querySelector('svg').classList.add('dots'));
-                    });
-                    at(5000, () => { say('Ranking top products...'); reveal(prod); at(150, () => growBars(prod)); });
-                    at(6600, () => { say('Scheduling daily auto-refresh at 9:00 AM...'); reveal(wrap.querySelector('.live')); });
-                }
-            },
-
-            excel: {
-                file: 'Sales_Report.xlsx · Excel Automation', icon: 'fa-file-excel', color: '#107c41',
-                done: 'Report ready: Sales_Report_Final.xlsx',
-                run(stage, at, say) {
-                    const data = [
-                        ['North', 'Laptop', 12, 540000], ['South', 'Printer', 30, 225000],
-                        ['East', 'Monitor', 25, 312500], ['West', 'Laptop', 8, 360000],
-                        ['North', 'Keyboard', 120, 96000], ['East', 'Mouse', 200, 80000],
-                        ['South', 'Laptop', 15, 675000], ['West', 'Monitor', 18, 225000]
-                    ];
-                    const body = h(`<div class="demo-body">
-                        <div class="sheet"><div class="sheet-head"><span></span><span>A</span><span>B</span><span>C</span><span>D</span></div><div class="sheet-rows"></div></div>
-                        <div class="d-box fade"><h4>Sales by Region</h4><div class="bars"></div></div></div>`);
-                    stage.append(body);
-                    const sheet = body.querySelector('.sheet'), rowsEl = body.querySelector('.sheet-rows');
-                    const chart = body.querySelector('.d-box'), bars = body.querySelector('.bars');
-                    rowsEl.style.height = (data.length + 2) * ROW_H + 'px';
-                    const mk = (cells, cls, idx) => {
-                        const r = h('<div class="sheet-row ' + (cls || '') + '">' + cells.map(c => '<span>' + c + '</span>').join('') + '</div>');
-                        r.style.top = idx * ROW_H + 'px'; rowsEl.appendChild(r); return r;
-                    };
-                    mk(['1', 'Region', 'Product', 'Units', 'Amount'], 'hdr', 0);
-                    const rows = data.map((d, i) => { const r = mk([i + 2, ...d], '', i + 1); r.data = d; return r; });
-                    const total = data.reduce((a, d) => a + d[3], 0);
-                    const totRow = mk([data.length + 2, 'TOTAL', '', data.reduce((a, d) => a + d[2], 0), inr(total)], 'total', data.length + 1);
-
-                    say('Raw data imported from 8 sales entries');
-                    at(1400, () => {
-                        say('Sorting by Amount (highest first)...');
-                        [...rows].sort((a, b) => b.data[3] - a.data[3]).forEach((r, i) => {
-                            r.style.top = (i + 1) * ROW_H + 'px';
-                            at(850, () => { r.firstChild.textContent = i + 2; });
-                            r.classList.toggle('zebra', i % 2 === 1);
-                            r.classList.toggle('top', i < 3);
-                        });
-                    });
-                    at(3000, () => {
-                        say('Applying formatting: currency, header style, highlights...');
-                        sheet.classList.add('fmt');
-                        rows.forEach(r => { r.lastChild.textContent = inr(r.data[3]); });
-                    });
-                    at(4600, () => { say('Calculating totals...'); totRow.classList.add('show'); });
-                    at(5800, () => {
-                        say('Generating summary chart...');
-                        const byRegion = {};
-                        data.forEach(d => { byRegion[d[0]] = (byRegion[d[0]] || 0) + d[3]; });
-                        const max = Math.max(...Object.values(byRegion));
-                        bars.innerHTML = Object.entries(byRegion).sort((a, b) => b[1] - a[1]).map(([k, v]) =>
-                            `<div class="bar-row"><span>${k}</span><div class="bar" data-w="${v / max * 100}"><b>${(v / 100000).toFixed(1)}L</b></div></div>`).join('');
-                        reveal(chart);
-                        at(150, () => growBars(chart));
-                    });
-                }
-            }
-        };
-
-        let demoTimers = [], currentDemo = 'excel';
         function playDemo() {
             demoTimers.forEach(clearTimeout); demoTimers = [];
-            const d = demos[currentDemo];
-            const panel = document.getElementById('demo-panel'), stage = document.getElementById('demo-stage');
+            const sheet = document.getElementById('sheet'), rowsEl = document.getElementById('sheet-rows');
+            const chart = document.getElementById('chart'), bars = document.getElementById('bars');
             const caption = document.getElementById('demo-caption'), step = document.getElementById('demo-step');
             const prog = document.getElementById('demo-progress'), replay = document.getElementById('demo-replay');
             const at = (ms, fn) => demoTimers.push(setTimeout(fn, ms));
             const say = t => { step.textContent = t; };
 
-            panel.style.setProperty('--demo-c', d.color);
-            document.getElementById('demo-icon').className = 'fa-solid ' + d.icon;
-            document.getElementById('demo-file').textContent = d.file;
-            caption.classList.remove('done'); replay.hidden = true;
-            stage.innerHTML = '';
+            // Reset
+            sheet.classList.remove('fmt'); chart.classList.remove('show'); caption.classList.remove('done');
+            replay.hidden = true; bars.innerHTML = '';
             prog.style.transition = 'none'; prog.style.width = '0';
-            at(30, () => { prog.style.transition = 'width ' + (DEMO_LEN - 30) + 'ms linear'; prog.style.width = '100%'; });
+            rowsEl.style.height = (demoData.length + 2) * ROW_H + 'px';
+            rowsEl.innerHTML = '';
+            const mk = (cells, cls) => {
+                const r = document.createElement('div'); r.className = 'sheet-row ' + (cls || '');
+                r.innerHTML = cells.map(c => '<span>' + c + '</span>').join(''); rowsEl.appendChild(r); return r;
+            };
+            const hdr = mk(['1', 'Region', 'Product', 'Units', 'Amount'], 'hdr'); hdr.style.top = '0px';
+            const rows = demoData.map((d, i) => {
+                const r = mk([i + 2, d[0], d[1], d[2], d[3]]); r.style.top = (i + 1) * ROW_H + 'px'; r.data = d; return r;
+            });
+            const total = demoData.reduce((a, d) => a + d[3], 0);
+            const totRow = mk([demoData.length + 2, 'TOTAL', '', demoData.reduce((a, d) => a + d[2], 0), inr(total)], 'total');
+            totRow.style.top = (demoData.length + 1) * ROW_H + 'px';
+            say('Raw data imported from 8 sales entries');
 
-            d.run(stage, at, say);
-            at(DEMO_LEN, () => { caption.classList.add('done'); say(d.done); replay.hidden = false; });
+            requestAnimationFrame(() => { prog.style.transition = 'width 8s linear'; prog.style.width = '100%'; });
+
+            at(1400, () => {
+                say('Sorting by Amount (highest first)...');
+                [...rows].sort((a, b) => b.data[3] - a.data[3]).forEach((r, i) => {
+                    r.style.top = (i + 1) * ROW_H + 'px';
+                    at(850, () => { r.firstChild.textContent = i + 2; });
+                    r.classList.toggle('zebra', i % 2 === 1);
+                    r.classList.toggle('top', i < 3);
+                });
+            });
+            at(3000, () => {
+                say('Applying formatting: currency, header style, highlights...');
+                sheet.classList.add('fmt');
+                rows.forEach(r => { r.lastChild.textContent = inr(r.data[3]); });
+            });
+            at(4600, () => { say('Calculating totals...'); totRow.classList.add('show'); });
+            at(5800, () => {
+                say('Generating summary chart...');
+                const byRegion = {};
+                demoData.forEach(d => { byRegion[d[0]] = (byRegion[d[0]] || 0) + d[3]; });
+                const max = Math.max(...Object.values(byRegion));
+                bars.innerHTML = Object.entries(byRegion).sort((a, b) => b[1] - a[1]).map(([k, v]) =>
+                    '<div class="bar-row"><span>' + k + '</span><div class="bar" data-w="' + (v / max * 100) + '"><b>' +
+                    (v / 100000).toFixed(1) + 'L</b></div></div>').join('');
+                chart.classList.add('show');
+                at(150, () => bars.querySelectorAll('.bar').forEach(b => { b.style.width = b.dataset.w + '%'; }));
+            });
+            at(8000, () => {
+                caption.classList.add('done');
+                say('Report ready: Sales_Report_Final.xlsx');
+                replay.hidden = false;
+            });
         }
-        function openDemo(key) {
-            currentDemo = demos[key] ? key : 'excel';
+        function openDemo() {
             document.getElementById('demo-modal').classList.add('open');
             document.body.style.overflow = 'hidden';
             playDemo();
