@@ -205,10 +205,6 @@
         .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
         .enquiry .btn { justify-content: center; border: 0; cursor: pointer; padding: 14px 24px; }
         .enquiry .btn:disabled { opacity: .6; cursor: wait; }
-        .btn-wa { background: #25d366; color: #fff; }
-        .btn-wa:hover { background: #1ebe5b; }
-        .enquiry .btn-wa i { font-size: 18px; }
-        .form-note { font-size: 13px; color: var(--muted); text-align: center; margin-top: -8px; }
         .hp { position: absolute; left: -9999px; }
         .form-status { font-size: 14px; min-height: 1em; }
         .form-status.ok { color: #178a52; }
@@ -222,77 +218,6 @@
             transition: transform .2s;
         }
         .wa-float:hover { transform: scale(1.08); }
-
-        /* Excel demo */
-        .demo-btn {
-            margin-top: 18px; display: inline-flex; align-items: center; gap: 8px;
-            background: none; border: 0; padding: 0; cursor: pointer;
-            font: inherit; font-size: 14px; font-weight: 600; color: var(--accent);
-        }
-        .demo-btn i { font-size: 18px; }
-        .demo-btn:hover { color: var(--accent-dark); }
-        .demo-modal {
-            position: fixed; inset: 0; z-index: 100; display: none;
-            background: rgba(10,19,32,.75); backdrop-filter: blur(4px);
-            align-items: center; justify-content: center; padding: 16px;
-        }
-        .demo-modal.open { display: flex; }
-        .demo-panel {
-            width: 100%; max-width: 860px; max-height: 100%; overflow: auto;
-            background: #fff; border-radius: 14px; box-shadow: 0 40px 80px -30px rgba(0,0,0,.6);
-        }
-        .demo-bar {
-            display: flex; align-items: center; gap: 10px;
-            background: #107c41; color: #fff; padding: 10px 16px; font-size: 14px; font-weight: 500;
-        }
-        .demo-bar .fname { flex: 1; }
-        .demo-bar button { background: none; border: 0; color: #fff; font-size: 18px; cursor: pointer; padding: 2px 6px; }
-        .demo-caption {
-            display: flex; align-items: center; gap: 10px;
-            padding: 14px 20px; font-size: 15px; font-weight: 600; color: var(--ink);
-            border-bottom: 1px solid var(--line);
-        }
-        .demo-caption .dot { width: 9px; height: 9px; border-radius: 50%; background: #f5a524; animation: pulse 1s infinite; }
-        .demo-caption.done .dot { background: #178a52; animation: none; }
-        @keyframes pulse { 50% { opacity: .3; } }
-        .demo-body { display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px; padding: 20px; }
-        .sheet { border: 1px solid #d0d7de; font-size: 13px; font-variant-numeric: tabular-nums; }
-        .sheet-head, .sheet-row {
-            display: grid; grid-template-columns: 32px 1fr 1fr .7fr 1.1fr; height: 32px; align-items: center;
-        }
-        .sheet-head { background: #f3f4f6; color: #6b7280; font-size: 12px; text-align: center; border-bottom: 1px solid #d0d7de; }
-        .sheet-rows { position: relative; }
-        .sheet-row {
-            position: absolute; left: 0; right: 0;
-            border-bottom: 1px solid #eceff3; color: #1f2937;
-            transition: top .8s cubic-bezier(.65,0,.35,1), background .4s, color .4s;
-        }
-        .sheet-row > span { padding: 0 8px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-        .sheet-row > span:first-child { padding: 0; color: #9ca3af; text-align: center; background: #f9fafb; height: 100%; line-height: 32px; border-right: 1px solid #eceff3; }
-        .sheet-row > span:nth-child(4), .sheet-row > span:nth-child(5) { text-align: right; }
-        .sheet.fmt .sheet-row.hdr { background: #107c41; color: #fff; font-weight: 600; }
-        .sheet.fmt .sheet-row.hdr > span:first-child { color: #9ca3af; }
-        .sheet.fmt .sheet-row.zebra { background: #f0f7f3; }
-        .sheet.fmt .sheet-row.top > span:nth-child(5) { color: #107c41; font-weight: 600; }
-        .sheet-row.total { font-weight: 700; background: #e7f3ec; border-top: 2px solid #107c41; opacity: 0; transition: opacity .6s; }
-        .sheet-row.total.show { opacity: 1; }
-        .chart { align-self: start; border: 1px solid var(--line); border-radius: 10px; padding: 16px; opacity: 0; transform: translateY(8px); transition: opacity .5s, transform .5s; }
-        .chart.show { opacity: 1; transform: none; }
-        .chart h4 { font-size: 13px; color: var(--ink); margin-bottom: 14px; }
-        .bar-row { display: grid; grid-template-columns: 48px 1fr; align-items: center; gap: 8px; font-size: 12px; margin-bottom: 10px; color: var(--muted); }
-        .bar { height: 22px; border-radius: 4px; background: linear-gradient(90deg, #107c41, #21a366); width: 0; transition: width 1s cubic-bezier(.2,.8,.2,1); position: relative; }
-        .bar b { position: absolute; right: 6px; top: 3px; color: #fff; font-size: 11px; font-weight: 600; }
-        .demo-foot { display: flex; align-items: center; gap: 14px; padding: 0 20px 20px; }
-        .demo-progress { flex: 1; height: 4px; background: #eceff3; border-radius: 2px; overflow: hidden; }
-        .demo-progress div { height: 100%; width: 0; background: #107c41; }
-        .demo-foot .btn { padding: 9px 16px; font-size: 14px; border: 0; cursor: pointer; }
-        .demo-foot .btn[hidden] { display: none; }
-        @media (max-width: 720px) {
-            .demo-body { grid-template-columns: 1fr; padding: 14px; }
-            .sheet { font-size: 11.5px; }
-            .sheet-head, .sheet-row { grid-template-columns: 24px 1fr 1fr .6fr 1.2fr; }
-            .sheet-row > span { padding: 0 5px; }
-        }
 
         /* Footer */
         footer { background: #0a1320; color: #7d889c; font-size: 14px; padding: 28px 0; }
@@ -438,7 +363,6 @@
                     </div>
                     <h3>Excel Automation</h3>
                     <p>Automate repetitive Excel tasks: data sorting, formatting and report generation.</p>
-                    <button type="button" class="demo-btn" onclick="openDemo()"><i class="fa-solid fa-circle-play"></i> Watch demo</button>
                 </article>
 
                 <article class="service cta">
@@ -548,8 +472,7 @@
                 <label>Message
                     <textarea name="Message" rows="4" placeholder="Briefly describe your requirement"></textarea>
                 </label>
-                <button type="submit" class="btn btn-wa">Send via WhatsApp <i class="fa-brands fa-whatsapp"></i></button>
-                <p class="form-note">Your details will open in WhatsApp. Just tap <strong>Send</strong>.</p>
+                <button type="submit" class="btn btn-primary">Submit enquiry <i class="fa-solid fa-paper-plane"></i></button>
                 <p class="form-status" role="status"></p>
             </form>
         </div>
@@ -567,147 +490,29 @@
         </div>
     </footer>
 
-    <!-- Excel automation demo -->
-    <div class="demo-modal" id="demo-modal" onclick="if(event.target===this)closeDemo()">
-        <div class="demo-panel" role="dialog" aria-modal="true" aria-label="Excel automation demo">
-            <div class="demo-bar">
-                <i class="fa-solid fa-file-excel"></i>
-                <span class="fname">Sales_Report.xlsx &mdash; Adivo Excel Automation</span>
-                <button type="button" onclick="closeDemo()" aria-label="Close demo"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <div class="demo-caption" id="demo-caption"><span class="dot"></span><span id="demo-step">Raw data imported</span></div>
-            <div class="demo-body">
-                <div class="sheet" id="sheet">
-                    <div class="sheet-head"><span></span><span>A</span><span>B</span><span>C</span><span>D</span></div>
-                    <div class="sheet-rows" id="sheet-rows"></div>
-                </div>
-                <div class="chart" id="chart">
-                    <h4>Sales by Region</h4>
-                    <div id="bars"></div>
-                </div>
-            </div>
-            <div class="demo-foot">
-                <div class="demo-progress"><div id="demo-progress"></div></div>
-                <button type="button" class="btn btn-primary" id="demo-replay" onclick="playDemo()" hidden><i class="fa-solid fa-rotate-right"></i> Replay</button>
-            </div>
-        </div>
-    </div>
-
     <a href="https://wa.me/916290829338?text=Hello%20Adivo%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services." class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
 
     <script>
-        document.getElementById('enquiry-form').addEventListener('submit', function (e) {
+        document.getElementById('enquiry-form').addEventListener('submit', async function (e) {
             e.preventDefault();
-            const form = this, status = form.querySelector('.form-status');
-            const f = new FormData(form);
-            const get = k => (f.get(k) || '').toString().trim();
-
-            // 1. Open WhatsApp with the customer's details pre-filled
-            const lines = [
-                '*New enquiry - Adivo website*',
-                '',
-                '*Name:* ' + get('Name'),
-                '*Mobile:* ' + get('Mobile'),
-                get('Email') && '*Email:* ' + get('Email'),
-                '*Service:* ' + get('Service'),
-                get('Message') && '*Message:* ' + get('Message')
-            ].filter(Boolean).join('\n');
-            const waUrl = 'https://wa.me/916290829338?text=' + encodeURIComponent(lines);
-            const win = window.open(waUrl, '_blank');
-            if (!win) window.location.href = waUrl;
-
-            // 2. Also email a copy to adivotech1@gmail.com
-            fetch('https://formsubmit.co/ajax/adivotech1@gmail.com', {
-                method: 'POST', headers: { 'Accept': 'application/json' }, body: f, keepalive: true
-            }).catch(() => {});
-
-            form.reset();
-            status.className = 'form-status ok';
-            status.textContent = 'WhatsApp has opened with your details. Please tap Send to complete your enquiry.';
-        });
-        // Excel automation demo
-        const demoData = [
-            ['North', 'Laptop', 12, 540000], ['South', 'Printer', 30, 225000],
-            ['East', 'Monitor', 25, 312500], ['West', 'Laptop', 8, 360000],
-            ['North', 'Keyboard', 120, 96000], ['East', 'Mouse', 200, 80000],
-            ['South', 'Laptop', 15, 675000], ['West', 'Monitor', 18, 225000]
-        ];
-        const ROW_H = 32, inr = n => '\u20b9' + n.toLocaleString('en-IN');
-        let demoTimers = [];
-
-        function playDemo() {
-            demoTimers.forEach(clearTimeout); demoTimers = [];
-            const sheet = document.getElementById('sheet'), rowsEl = document.getElementById('sheet-rows');
-            const chart = document.getElementById('chart'), bars = document.getElementById('bars');
-            const caption = document.getElementById('demo-caption'), step = document.getElementById('demo-step');
-            const prog = document.getElementById('demo-progress'), replay = document.getElementById('demo-replay');
-            const at = (ms, fn) => demoTimers.push(setTimeout(fn, ms));
-            const say = t => { step.textContent = t; };
-
-            // Reset
-            sheet.classList.remove('fmt'); chart.classList.remove('show'); caption.classList.remove('done');
-            replay.hidden = true; bars.innerHTML = '';
-            prog.style.transition = 'none'; prog.style.width = '0';
-            rowsEl.style.height = (demoData.length + 2) * ROW_H + 'px';
-            rowsEl.innerHTML = '';
-            const mk = (cells, cls) => {
-                const r = document.createElement('div'); r.className = 'sheet-row ' + (cls || '');
-                r.innerHTML = cells.map(c => '<span>' + c + '</span>').join(''); rowsEl.appendChild(r); return r;
-            };
-            const hdr = mk(['1', 'Region', 'Product', 'Units', 'Amount'], 'hdr'); hdr.style.top = '0px';
-            const rows = demoData.map((d, i) => {
-                const r = mk([i + 2, d[0], d[1], d[2], d[3]]); r.style.top = (i + 1) * ROW_H + 'px'; r.data = d; return r;
-            });
-            const total = demoData.reduce((a, d) => a + d[3], 0);
-            const totRow = mk([demoData.length + 2, 'TOTAL', '', demoData.reduce((a, d) => a + d[2], 0), inr(total)], 'total');
-            totRow.style.top = (demoData.length + 1) * ROW_H + 'px';
-            say('Raw data imported from 8 sales entries');
-
-            requestAnimationFrame(() => { prog.style.transition = 'width 8s linear'; prog.style.width = '100%'; });
-
-            at(1400, () => {
-                say('Sorting by Amount (highest first)...');
-                [...rows].sort((a, b) => b.data[3] - a.data[3]).forEach((r, i) => {
-                    r.style.top = (i + 1) * ROW_H + 'px';
-                    at(850, () => { r.firstChild.textContent = i + 2; });
-                    r.classList.toggle('zebra', i % 2 === 1);
-                    r.classList.toggle('top', i < 3);
+            const form = this, btn = form.querySelector('button'), status = form.querySelector('.form-status');
+            btn.disabled = true; status.className = 'form-status'; status.textContent = 'Sending...';
+            try {
+                const res = await fetch('https://formsubmit.co/ajax/adivotech1@gmail.com', {
+                    method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form)
                 });
-            });
-            at(3000, () => {
-                say('Applying formatting: currency, header style, highlights...');
-                sheet.classList.add('fmt');
-                rows.forEach(r => { r.lastChild.textContent = inr(r.data[3]); });
-            });
-            at(4600, () => { say('Calculating totals...'); totRow.classList.add('show'); });
-            at(5800, () => {
-                say('Generating summary chart...');
-                const byRegion = {};
-                demoData.forEach(d => { byRegion[d[0]] = (byRegion[d[0]] || 0) + d[3]; });
-                const max = Math.max(...Object.values(byRegion));
-                bars.innerHTML = Object.entries(byRegion).sort((a, b) => b[1] - a[1]).map(([k, v]) =>
-                    '<div class="bar-row"><span>' + k + '</span><div class="bar" data-w="' + (v / max * 100) + '"><b>' +
-                    (v / 100000).toFixed(1) + 'L</b></div></div>').join('');
-                chart.classList.add('show');
-                at(150, () => bars.querySelectorAll('.bar').forEach(b => { b.style.width = b.dataset.w + '%'; }));
-            });
-            at(8000, () => {
-                caption.classList.add('done');
-                say('Report ready: Sales_Report_Final.xlsx');
-                replay.hidden = false;
-            });
-        }
-        function openDemo() {
-            document.getElementById('demo-modal').classList.add('open');
-            document.body.style.overflow = 'hidden';
-            playDemo();
-        }
-        function closeDemo() {
-            demoTimers.forEach(clearTimeout);
-            document.getElementById('demo-modal').classList.remove('open');
-            document.body.style.overflow = '';
-        }
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDemo(); });
+                const data = await res.json();
+                if (!res.ok || String(data.success) !== 'true') throw new Error(data.message);
+                form.reset();
+                status.className = 'form-status ok';
+                status.textContent = 'Thank you! Your enquiry has been received. We will contact you shortly.';
+            } catch (err) {
+                status.className = 'form-status err';
+                status.textContent = 'Sorry, something went wrong. Please call +91 62908 29338 or email adivotech1@gmail.com.';
+            } finally {
+                btn.disabled = false;
+            }
+        });
     </script>
 </body>
 </html>
